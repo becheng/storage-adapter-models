@@ -1,8 +1,8 @@
 ﻿using Azure;
 using Azure.Data.Tables;
 
-
-namespace storageAdapterModels;
+#pragma warning disable 0436
+namespace StorageAdapter.Models;
 
 public class TenantToStorageMapping : ITableEntity
 {
