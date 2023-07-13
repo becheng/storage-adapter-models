@@ -10,8 +10,8 @@ public class StorageAdapterRequest
     public enum StorageRequestType
     {
         None,
-        AWS3,
-        AzStorageAccount
+        SignedUrl,
+        StorageClient
     }
     public enum SignedURIAction
     {
@@ -22,7 +22,14 @@ public class StorageAdapterRequest
     }
      
     public StorageAdapterRequest(string cxTenantId) : 
-        this(StorageRequestType.AzStorageAccount, cxTenantId, String.Empty, SignedURIAction.None, Double.NaN) { }
+        this(StorageRequestType.StorageClient, cxTenantId, String.Empty, SignedURIAction.None, Double.NaN) { }
+
+    public StorageAdapterRequest(
+        string cxTenantId, 
+        string fileName, 
+        SignedURIAction signedURIAction, 
+        double timeoutDurationInHrs = 1) : 
+        this(StorageRequestType.SignedUrl, cxTenantId, fileName, signedURIAction, timeoutDurationInHrs) { }
 
     private StorageAdapterRequest(
         StorageRequestType storageRequestType, 
