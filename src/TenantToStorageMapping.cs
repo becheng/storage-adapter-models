@@ -11,10 +11,11 @@ public class TenantToStorageMapping : ITableEntity
     public DateTimeOffset? Timestamp { get; set; }
     public ETag ETag { get; set; }
     
-    public string? CxTenantId { get; set; }
+    // public string? CxTenantId { get; set; }
+    public Guid? CxTenantId { get; set; }
     public string? CxTenantName { get; set; }
     public StorageType StorageType { get; set; }
-    public string? ConnectionUri { get; set; }
+    public string? ConnectionUriKVSecretName { get; set; }
     public string? ContainerName { get; set; }
     public ConnectionUriType ConnectionUriType { get; set; }
     public string? StorageRegion { get; set; }
