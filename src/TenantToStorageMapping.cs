@@ -16,6 +16,7 @@ public class TenantToStorageMapping : ITableEntity
     public string? CxTenantName { get; set; }
     public StorageType StorageType { get; set; }
     public string? ConnectionUriKVSecretName { get; set; }
+    public string? AzAccountName { get; set; }
     public string? ContainerName { get; set; }
     public ConnectionUriType ConnectionUriType { get; set; }
     public string? StorageRegion { get; set; }
@@ -25,4 +26,4 @@ public class TenantToStorageMapping : ITableEntity
 }
 
 public enum StorageType { AzureStorageAccount, AmazonS3 };
-public enum ConnectionUriType { ConnectionString, SasUri, ContainerUri, AWS3PresignedUrl };
+public enum ConnectionUriType { ConnectionString, SasUri, ContainerUri, AzSasUri, AWS3PresignedUrl };
