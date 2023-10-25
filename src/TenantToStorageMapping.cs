@@ -13,15 +13,17 @@ public class TenantToStorageMapping : ITableEntity
     
     public string? CxTenantId { get; set; }
     public string? CxTenantName { get; set; }
+    public string? StorageIdentifier { get; set;}
+    public string? StorageAccessKeySecretRef { get; set; }
     public StorageType StorageType { get; set; }
-    public string? ConnectionUri { get; set; }
     public string? ContainerName { get; set; }
-    public ConnectionUriType ConnectionUriType { get; set; }
+    public ConnectionType ConnectionType { get; set; }
     public string? StorageRegion { get; set; }
-    public bool IsAzureCrossTenant{ get; set; }
-    public string? AzureCrossTenantId{ get; set; }
-    public string? AzureCrossTenantDomain{ get; set; }
+    public bool IsAzCrossTenant{ get; set; }
+    public string? AzCrossTenantId{ get; set; }
+    public string? AzCrossTenantDomain{ get; set; }
 }
 
-public enum StorageType { AzureStorageAccount, AmazonS3 };
-public enum ConnectionUriType { ConnectionString, SasUri, ContainerUri, AWS3PresignedUrl };
+public enum StorageType { AzStorage, AwsS3 };
+// public enum ConnectionUriType { ConnectionString, SasUri, ContainerUri, AWS3PresignedUrl };
+public enum ConnectionType { AzStorageSharedKey, AzOauth, AwsCredentials };
