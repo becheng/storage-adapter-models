@@ -1,8 +1,8 @@
 ﻿using Azure;
 using Azure.Data.Tables;
 
-
-namespace storageAdapterModels;
+#pragma warning disable 0436
+namespace StorageAdapter.Models;
 
 public class TenantToStorageMapping : ITableEntity
 {
@@ -11,11 +11,11 @@ public class TenantToStorageMapping : ITableEntity
     public DateTimeOffset? Timestamp { get; set; }
     public ETag ETag { get; set; }
     
-    public string? CxTenantId { get; set; }
+    public Guid? CxTenantId { get; set; }
     public string? CxTenantName { get; set; }
-    public string? StorageIdentifier { get; set;}
     public string? StorageAccessKeySecretRef { get; set; }
     public StorageType StorageType { get; set; }
+    public string? StorageIdentifier { get; set; }
     public string? ContainerName { get; set; }
     public ConnectionType ConnectionType { get; set; }
     public string? StorageRegion { get; set; }
@@ -25,5 +25,4 @@ public class TenantToStorageMapping : ITableEntity
 }
 
 public enum StorageType { AzStorage, AwsS3 };
-// public enum ConnectionUriType { ConnectionString, SasUri, ContainerUri, AWS3PresignedUrl };
 public enum ConnectionType { AzStorageSharedKey, AzOauth, AwsCredentials };
